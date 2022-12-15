@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
+
 import colors from "../constants/colors";
 
 const styles = StyleSheet.create({
@@ -22,13 +23,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export const RowItem = ({ text, rightIcon, onPress }) => {
-  return (
-    <TouchableOpacity onPress={onPress} style={styles.row}>
-      <Text style={styles.title}>{text}</Text>
-      {rightIcon}
-    </TouchableOpacity>
-  );
-};
+export const RowItem = ({ title, onPress, rightIcon }) => (
+  <TouchableOpacity onPress={onPress} style={styles.row}>
+    <Text style={styles.title}>{title}</Text>
+    {rightIcon}
+  </TouchableOpacity>
+);
 
 export const RowSeparator = () => <View style={styles.separator} />;

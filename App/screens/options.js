@@ -1,7 +1,13 @@
 import React from "react";
-import { ScrollView, Linking, Alert } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  SafeAreaView,
+  ScrollView,
+  Linking,
+  Alert,
+  StatusBar,
+} from "react-native";
 import { Entypo } from "@expo/vector-icons";
+
 import colors from "../constants/colors";
 import { RowItem, RowSeparator } from "../components/RowItem";
 
@@ -12,10 +18,12 @@ const openLink = (url) =>
 
 export default () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
+
       <ScrollView>
         <RowItem
-          text="Themes"
+          title="Themes"
           onPress={() => alert("todo!")}
           rightIcon={
             <Entypo name="chevron-right" size={20} color={colors.blue} />
@@ -25,16 +33,20 @@ export default () => {
         <RowSeparator />
 
         <RowItem
-          text="React Native Basics"
-          onPress={() => openLink("https://www.google.com/")}
+          title="React Native Basics"
+          onPress={() =>
+            openLink(
+              "https://learn.reactnativeschool.com/p/react-native-basics-build-a-currency-converter"
+            )
+          }
           rightIcon={<Entypo name="export" size={20} color={colors.blue} />}
         />
 
         <RowSeparator />
 
         <RowItem
-          text="React Native by Example"
-          onPress={() => openLink("https://www.google.com/")}
+          title="React Native by Example"
+          onPress={() => openLink("https://reactnativebyexample.com")}
           rightIcon={<Entypo name="export" size={20} color={colors.blue} />}
         />
       </ScrollView>
